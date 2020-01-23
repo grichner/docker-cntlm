@@ -7,14 +7,14 @@ fi
 if [ ! -f /cntlm.ini ]; then
 
   if [ ! -t 0 ]; then
-    echo 'No /cntlm.ini found.'
+    echo 'No /cntlm.conf found.'
     echo 'Please run this image with the options '-it --rm' the config file.'
     exit 0
   fi
 
   clear
 
-  echo 'No /cntlm.ini found. Start creating it...'
+  echo 'No /cntlm.conf found. Start creating it...'
   read -p "Proxy: " proxy
   read -p "Domain: " domain
   read -p "Username: " username
@@ -36,9 +36,9 @@ if [ ! -f /cntlm.ini ]; then
   echo "Listen 0.0.0.0:3128"
   echo ""
   echo 'Then start this container again with:'
-  echo 'docker run -d --name cntlm -p localhost:3128:3128 -v <config-file>:/cntlm.ini <cntlm-image-name>'
+  echo 'docker run -d --name cntlm -p localhost:3128:3128 -v <config-file>:/cntlm.conf <cntlm-image-name>'
   echo 'Afterwards your proxy URL is http://localhost:3128'
   exit 0
 else
-  exec /usr/sbin/cntlm -f -c /cntlm.ini
+  exec /usr/sbin/cntlm -f -c /cntlm.conf
 fi
