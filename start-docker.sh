@@ -4,7 +4,7 @@ if [ "$#" -ne 0 ]; then
   exec /usr/sbin/cntlm -f $*
 fi
 
-if [ ! -f /cntlm.ini ]; then
+if [ ! -f /cntlm.conf ]; then
 
   if [ ! -t 0 ]; then
     echo 'No /cntlm.conf found.'
