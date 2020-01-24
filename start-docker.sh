@@ -20,7 +20,7 @@ if [ ! -f /cntlm.conf ]; then
   read -p "Username: " username
   read -p "Password: " -s password
   echo ''
-  read -p "NoProxy (may be empty, localhost and 127.0.0.* already included): " noproxy
+  read -p "NoProxy [comma separated] (may be empty, localhost and 127.0.0.* already included): " noproxy
 
   cntlm -u "$username" -d "$domain" -H <<< "$password" |grep 'Pass[LM|NT]' > hashes
 
