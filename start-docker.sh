@@ -36,9 +36,9 @@ if [ ! -f /cntlm.conf ]; then
   echo "Listen 0.0.0.0:3128"
   echo ""
   echo 'Then start this container again with:'
-  echo 'docker run -d --name cntlm -p localhost:3128:3128 -v <config-file>:/cntlm.conf <cntlm-image-name>'
+  echo 'docker run -d --name cntlm -p 127.0.0.1:3128:3128 -v <config-file>:/cntlm.conf <cntlm-image-name>'
   echo 'Afterwards your proxy URL is http://localhost:3128'
   exit 0
 else
-  exec /usr/sbin/cntlm -f -c /cntlm.conf
+  exec /usr/sbin/cntlm -f -v -c /cntlm.conf
 fi
