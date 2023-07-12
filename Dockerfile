@@ -1,6 +1,7 @@
 FROM opensuse/leap:latest
 MAINTAINER gregor.richner-extern at deutschebahn com
 
+RUN zypper --non-interactive patch
 RUN zypper --non-interactive patch && \
     zypper --non-interactive in cntlm && \
     zypper clean --all
