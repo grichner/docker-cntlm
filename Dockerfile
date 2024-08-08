@@ -1,5 +1,5 @@
 FROM opensuse/tumbleweed:latest
-MAINTAINER gregor.richner-extern at deutschebahn com
+LABEL maintainer="grichner at gmx dot net"
 
 RUN zypper --non-interactive in cntlm && \
     zypper clean --all
